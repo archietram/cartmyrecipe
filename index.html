@@ -5,12 +5,12 @@
     <title>CartMyRecipe - Turn Recipes into Kroger Carts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="CartMyRecipe simplifies grocery shopping by parsing ingredients from uploaded recipes, searching for products at Kroger, and providing tailored recommendations. Add recommended items directly to your Kroger cart with ease.">
+        content="CartMyRecipe simplifies grocery shopping by parsing ingredients from uploaded recipes and searching for products at Kroger. Add items directly to your Kroger cart with ease.">
     <meta name="keywords"
         content="CartMyRecipe, recipe to cart, grocery shopping, Kroger, ingredient parsing, recipe automation, meal planning, automated shopping">
     <meta property="og:title" content="CartMyRecipe - Automatic Kroger Cart">
     <meta property="og:description"
-        content="Upload a recipe and let CartMyRecipe handle the rest. Automatically parse ingredients, search products at Kroger, and add recommended items directly to your cart.">
+        content="Upload a recipe and let CartMyRecipe handle the rest. Automatically parse ingredients, search products at Kroger, and add items directly to your cart.">
     <meta property="og:url" content="https://cartmyrecipe.com">
     <meta property="og:image" content="https://cartmyrecipe.com/favicon.webp">
     <link rel="icon" type="image/webp" href="favicon.webp">
@@ -40,12 +40,32 @@
     <!--
 CartMyRecipe simplifies grocery shopping by parsing ingredients from uploaded recipes, searching for products at Kroger, and providing tailored recommendations. Add recommended items directly to your Kroger cart with ease.
 -->
+    <button id="toggle-button">Show Info</button>
     <div id="info">
-        <h1>Coming Soon: Cart My Recipe</h1>
-        <p>Transform your recipes into a Kroger shopping cart with just a few clicks!</p>
-        <p>We're putting the finishing touches on this exciting new tool. Check back soon!</p>
+        <h1>Turn Recipes into Kroger Carts Instantly</h1>
+        <p>CartMyRecipe eliminates tedious grocery planning. Upload any recipe and we'll create your shopping cart in seconds!</p>
+        <p>✓ Automatic ingredient parsing<br>
+           ✓ Smart product searching<br>
+           ✓ One-click Kroger cart creation</p>
+        <p><strong>Getting started is easy:</strong> Just upload a recipe URL or enter ingredients manually, review the products, and send to your Kroger cart!</p>
+        <p><small>This free tool is actively being improved. Thank you for your support!</small></p>
     </div>
-    <!-- <iframe id="example1" src="https://archietram.shinyapps.io/multisearch-map/" frameborder="0"></iframe> -->
+    <iframe id="cartmyrecipe" src="https://archietram.shinyapps.io/cartmyrecipe/" frameborder="0"></iframe>
+
+    <script>
+        const toggleButton = document.getElementById('toggle-button');
+        const infoDiv = document.getElementById('info');
+
+        toggleButton.addEventListener('click', () => {
+            if (infoDiv.classList.contains('expanded')) {
+                infoDiv.classList.remove('expanded');
+                toggleButton.textContent = 'Show Info';
+            } else {
+                infoDiv.classList.add('expanded');
+                toggleButton.textContent = 'Hide Info';
+            }
+        });
+    </script>
 </body>
 
 </html>
