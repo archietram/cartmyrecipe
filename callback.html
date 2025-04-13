@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CartMyRecipe - Authentication Callback</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <p>Processing authentication, please wait...</p>
+    
+    <script>
+        // Extract the code from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        
+        if (code) {
+            // Redirect to the main app with the code as a parameter
+            window.location.href = '/?auth_code=' + encodeURIComponent(code);
+        } else {
+            // Handle error case
+            document.body.innerHTML = '<p>Authentication failed. Please try again.</p>';
+        }
+    </script>
+</body>
+</html>

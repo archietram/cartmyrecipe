@@ -44,15 +44,68 @@ CartMyRecipe simplifies grocery shopping by parsing ingredients from uploaded re
     <div id="info">
         <h1>Turn Recipes into Kroger Carts Instantly</h1>
         <p>CartMyRecipe eliminates tedious grocery planning. Upload any recipe and we'll create your shopping cart in seconds!</p>
-        <p>✓ Automatic ingredient parsing<br>
-           ✓ Smart product searching<br>
-           ✓ One-click Kroger cart creation</p>
-        <p><strong>Getting started is easy:</strong> Just upload a recipe URL or enter ingredients manually, review the products, and send to your Kroger cart!</p>
+        <p>Automatic ingredient parsing - Smart product searching - One-click Kroger cart creation</p>
+        <p><strong>Getting started is easy:</strong></p>
+        <ol class="steps">
+            <li><strong>Connect your Kroger account</strong> <small>(opens in new tab)</small></li>
+            <li><strong>Select your preferred store</strong> by entering your zip code</li>
+            <li><strong>Add ingredients</strong> by uploading a recipe or entering them manually</li>
+            <li><strong>Review suggested products</strong> and customize your selections</li>
+            <li><strong>Send to your Kroger cart</strong> with one click!</li>
+        </ol>
         <p><small>This free tool is actively being improved. Thank you for your support!</small></p>
     </div>
     <iframe id="cartmyrecipe" src="https://archietram.shinyapps.io/cartmyrecipe/" frameborder="0"></iframe>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
 
+        #info {
+            background-color: #f4f4f9;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .steps {
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto;
+            padding-left: 30px;
+        }
+
+        .steps li {
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100vh;
+            /* Adjusts height dynamically to fit the screen */
+        }
+    </style>
     <script>
+        // Add this at the beginning of your script section
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const authCode = urlParams.get('auth_code');
+            
+            if (authCode) {
+                // If auth_code exists, pass it to the iframe
+                const iframe = document.getElementById('cartmyrecipe');
+                const baseUrl = 'https://archietram.shinyapps.io/cartmyrecipe/';
+                iframe.src = baseUrl + '?auth_code=' + encodeURIComponent(authCode);
+                
+                // Clean up the URL
+                window.history.replaceState({}, document.title, '/');
+            }
+        };
+        
+        // Your existing script continues here
         const toggleButton = document.getElementById('toggle-button');
         const infoDiv = document.getElementById('info');
         
@@ -70,44 +123,6 @@ CartMyRecipe simplifies grocery shopping by parsing ingredients from uploaded re
             }
         });
     </script>
-        <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        #info {
-            background-color: #f4f4f9;
-            padding: 20px;
-            text-align: center;
-            display: none; /* Hide info div by default */
-        }
-
-        #info.expanded {
-            display: block; /* Show when expanded class is present */
-        }
-
-        #toggle-button {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 1000;
-            padding: 8px 12px;
-            background-color: #0066cc;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        iframe {
-            border: none;
-            width: 100%;
-            height: 100vh;
-            /* Adjusts height dynamically to fit the screen */
-        }
-    </style>
 </body>
 
 </html>
