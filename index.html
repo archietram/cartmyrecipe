@@ -67,6 +67,24 @@ CartMyRecipe simplifies grocery shopping by parsing ingredients from uploaded re
             background-color: #f4f4f9;
             padding: 20px;
             text-align: center;
+            display: none; /* Hide by default when not expanded */
+        }
+
+        #info.expanded {
+            display: block; /* Show when expanded class is present */
+        }
+
+        #toggle-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            padding: 8px 12px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
         .steps {
