@@ -40,54 +40,9 @@
     <!--
 CartMyRecipe simplifies grocery shopping by parsing ingredients from uploaded recipes, searching for products at Kroger, and providing tailored recommendations. Add recommended items directly to your Kroger cart with ease.
 -->
-    <button id="toggle-button">Show Info</button>
-    <div id="info">
-        <h1>Turn Recipes into Kroger Carts Instantly</h1>
-        <p>CartMyRecipe eliminates tedious grocery planning. Upload any recipe and we'll create your shopping cart in seconds!</p>
-        <p>Automatic ingredient parsing - Smart product searching - One-click Kroger cart creation</p>
-        <p><strong>Getting started is easy:</strong></p>
-        <ol class="steps">
-            <li><strong>Connect your Kroger account</strong> <small>(opens in new tab)</small></li>
-            <li><strong>Select your preferred store</strong> by entering your zip code</li>
-            <li><strong>Add ingredients</strong> by uploading a recipe or entering them manually</li>
-            <li><strong>Review suggested products</strong> and customize your selections</li>
-            <li><strong>Send to your Kroger cart</strong> with one click!</li>
-        </ol>
-        <p><small>This free tool is actively being improved. Thank you for your support!</small></p>
-    </div>
+    
     <iframe id="cartmyrecipe" src="https://archietram.shinyapps.io/cartmyrecipe/" frameborder="0"></iframe>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
 
-        #info {
-            background-color: #f4f4f9;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .steps {
-            text-align: left;
-            max-width: 500px;
-            margin: 0 auto;
-            padding-left: 30px;
-        }
-
-        .steps li {
-            margin-bottom: 8px;
-            padding-left: 5px;
-        }
-
-        iframe {
-            border: none;
-            width: 100%;
-            height: 100vh;
-            /* Adjusts height dynamically to fit the screen */
-        }
-    </style>
     <script>
         // Add this at the beginning of your script section
         window.onload = function() {
@@ -104,24 +59,6 @@ CartMyRecipe simplifies grocery shopping by parsing ingredients from uploaded re
                 window.history.replaceState({}, document.title, '/');
             }
         };
-        
-        // Your existing script continues here
-        const toggleButton = document.getElementById('toggle-button');
-        const infoDiv = document.getElementById('info');
-        
-        // Set initial state
-        infoDiv.classList.add('expanded');
-        toggleButton.textContent = 'Hide Info';
-
-        toggleButton.addEventListener('click', () => {
-            if (infoDiv.classList.contains('expanded')) {
-                infoDiv.classList.remove('expanded');
-                toggleButton.textContent = 'Show Info';
-            } else {
-                infoDiv.classList.add('expanded');
-                toggleButton.textContent = 'Hide Info';
-            }
-        });
     </script>
 </body>
 
