@@ -55,6 +55,10 @@ CartMyRecipe simplifies grocery shopping by parsing ingredients from uploaded re
     <script>
         const toggleButton = document.getElementById('toggle-button');
         const infoDiv = document.getElementById('info');
+        
+        // Set initial state
+        infoDiv.classList.add('expanded');
+        toggleButton.textContent = 'Hide Info';
 
         toggleButton.addEventListener('click', () => {
             if (infoDiv.classList.contains('expanded')) {
@@ -66,6 +70,44 @@ CartMyRecipe simplifies grocery shopping by parsing ingredients from uploaded re
             }
         });
     </script>
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #info {
+            background-color: #f4f4f9;
+            padding: 20px;
+            text-align: center;
+            display: none; /* Hide info div by default */
+        }
+
+        #info.expanded {
+            display: block; /* Show when expanded class is present */
+        }
+
+        #toggle-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            padding: 8px 12px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100vh;
+            /* Adjusts height dynamically to fit the screen */
+        }
+    </style>
 </body>
 
 </html>
